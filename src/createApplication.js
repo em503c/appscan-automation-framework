@@ -69,8 +69,8 @@ ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => 
     logger.info('didCreateApp: '+ didCreateApp);
     logger.info('didCreateApp.id: '+ didCreateApp.id);
     logger.info('didCreateApp.body.id: '+ didCreateApp.body.id);
-    if (didCreateApp.id) {
-        logger.info('Successfully created application: '+appName+' id#'+didCreateApp.id);
+    if (didCreateApp.body.id) {
+        logger.info('Successfully created application: '+appName+' id#'+didCreateApp.body.id);
 
     } else {
       logger.info('Could not create application: '+appName);
