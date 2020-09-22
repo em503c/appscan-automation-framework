@@ -139,6 +139,7 @@ ase.createApp = function (name, description, tagsArray, development_contact, cal
 
     aseapi.doPost(createAppURL, createAppBody)
         .then((data) => {
+        logger.info('data: '+ data);
             callback(data);
         })
         .catch((err) => {
