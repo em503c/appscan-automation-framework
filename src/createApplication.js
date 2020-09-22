@@ -61,14 +61,6 @@ if(!appName){
  * ase.createApp = function (name, description, tagsArray, development_contact, callback) 
  */
 ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => {
-    logger.info('use strict');
-    'use strict';
-    const util = require('util');
-    console.log(util.inspect(didCreateApp, {depth: null}));
-
-    logger.info('didCreateApp: '+ didCreateApp);
-    logger.info('didCreateApp.id: '+ didCreateApp.id);
-    logger.info('didCreateApp.body.id: '+ didCreateApp.body.id);
     if (didCreateApp.body.id) {
         logger.info('Successfully created application: '+appName+' id#'+didCreateApp.body.id);
 
