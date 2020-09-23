@@ -63,18 +63,8 @@ ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => 
     if (didCreateApp.body.id) {
         logger.info('Successfully created application: '+appName+' id#'+didCreateApp.body.id);
     } else {
-        logger.info('iterate appList')
         ase.getApps(range, (appList) => {
-            logger.info('use strict');
-            'use strict';
-            const util = require('util');
-            console.log(util.inspect(appList, {depth: null}));
-
             appList.body.forEach(existingApp => {
-                console.log("app: " + existingApp);
-                console.log("app.name: " + existingApp.name);
-                console.log("app.id: " + existingApp.id);
-
                 if (existingApp.name === appName) {
                   logger.info('Application already exists with id#'+existingApp.id);
                 }
