@@ -20,7 +20,7 @@ var appName = null;
 var appDescription = 'Application added via REST API';
 var appContact = '';
 var tagsArray = [];
-var range = {start: 0, end: 99};
+var range = {start: 0, end: 100000000000000000};
 
 // Assign argument values to variables
 for (let arguments in process.argv) {
