@@ -64,7 +64,7 @@ ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => 
     if (didCreateApp.body.id) {
         logger.info('Successfully created application: '+appName+' id#'+didCreateApp.body.id);
     } else {
-        logger.info('check if getApps is being called')
+        logger.info('check if code reaches inside getApps')
         ase.getApps((appList), range => {
             logger.info('use strict');
             'use strict';

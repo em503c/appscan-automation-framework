@@ -30,6 +30,7 @@ var ase = module.exports;
  * defaults to start at 0 and end at 99. EXAMPLE: range = {start: 0, end: 99}
  */
 ase.getApps = function (callback, range) {
+    logger.info('getApps')
     let getAppURL = '/applications';
     let startRange = 0;
     let endRange = 99;
