@@ -64,7 +64,7 @@ ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => 
     if (didCreateApp.body.id) {
         logger.info('Successfully created application: '+appName+' id#'+didCreateApp.body.id);
     } else {
-        ase.createApp((appList), range => {
+        ase.getApps((appList), range => {
             logger.info('use strict');
             'use strict';
             const util = require('util');
