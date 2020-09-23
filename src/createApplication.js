@@ -64,6 +64,7 @@ ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => 
     if (didCreateApp.body.id) {
         logger.info('Successfully created application: '+appName+' id#'+didCreateApp.body.id);
     } else {
+        logger.info('check if getApps is being called')
         ase.getApps((appList), range => {
             logger.info('use strict');
             'use strict';
@@ -72,5 +73,4 @@ ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => 
             logger.info('Application already exists with id#'+appName);
         })
     }
-
 })
