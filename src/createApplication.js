@@ -21,7 +21,7 @@ var appName = null;
 var appDescription = 'Application added via REST API';
 var appContact = '';
 var tagsArray = [];
-
+var range = {start: 0, end: 99};
 
 // Assign argument values to variables
 for (let arguments in process.argv) {
@@ -61,15 +61,16 @@ if(!appName){
  * ase.createApp = function (name, description, tagsArray, development_contact, callback) 
  */
 ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => {
-    logger.info('use strict');
-    'use strict';
-    const util = require('util');
-    console.log(util.inspect(didCreateApp, {depth: null}));
     if (didCreateApp.body.id) {
         logger.info('Successfully created application: '+appName+' id#'+didCreateApp.body.id);
-
     } else {
-      logger.info('Could not create application: '+appName);
+        ase.createApp((appList), range => {
+            logger.info('use strict');
+            'use strict';
+            const util = require('util');
+            console.log(util.inspect(appList, {depth: null}));
+            logger.info('Application already exists with id#'+appName);
+        })
     }
 
 })
