@@ -29,7 +29,7 @@ var ase = module.exports;
  * @param {Object} range - (OPTIONAL) has to keys: start and end, allows controll of what data to send.  If nothing sent
  * defaults to start at 0 and end at 99. EXAMPLE: range = {start: 0, end: 99}
  */
-ase.getApps = function (callback, range) {
+ase.getApps = function (range, callback) {
     logger.info('getApps')
     let getAppURL = '/applications';
     let startRange = 0;

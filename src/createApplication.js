@@ -21,7 +21,6 @@ var appDescription = 'Application added via REST API';
 var appContact = '';
 var tagsArray = [];
 var range = {start: 0, end: 99};
-var appList = null;
 
 // Assign argument values to variables
 for (let arguments in process.argv) {
@@ -64,8 +63,8 @@ ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => 
     if (didCreateApp.body.id) {
         logger.info('Successfully created application: '+appName+' id#'+didCreateApp.body.id);
     } else {
-        logger.info('define appList')
-        ase.getApps((appList), range => {
+        logger.info('callback last')
+        ase.getApps(range, (appList) => {
             logger.info('use strict');
             'use strict';
             const util = require('util');
