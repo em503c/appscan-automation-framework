@@ -69,11 +69,12 @@ ase.createFolder(parentID, folderName, folderDescription, folderContact, (didCre
         logger.info('folder already exists');
         ase.getFolders((folderList) => {
             console.log(util.inspect(folderList, {depth: null}));
-            /* appList.body.forEach(existingApp => {
-                if (existingApp.name === appName) {
-                  logger.info('Application already exists with id#'+existingApp.id);
+            folderList.body.forEach(existingFolder => {
+                logger.info('folderID: ' + folderID);
+                if (existingFolder.folderName === folderName) {
+                  logger.info('Application already exists with id#'+existingFolder.folderId);
                 }
-            }); */
+            });
         })
     }
 })
