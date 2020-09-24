@@ -17,7 +17,8 @@ const logger = require('../config/logger');
 var folderName = null;
 var folderDescription = 'Application added via REST API';
 var folderContact = '';
-var parentID = '1';
+// new folder will be created under 'Scans'
+var parentID = '8';
 
 // Assign argument values to variables
 for (let arguments in process.argv) {
