@@ -40,7 +40,7 @@ for (let arguments in process.argv) {
     }
 }
 
-if(!dolerName){
+if(!folderName){
   logger.error('You must provide a name for the folder');
   logger.info('Use the -h flag for help');
   return
