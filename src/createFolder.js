@@ -60,6 +60,7 @@ ase.createFolder(parentID, folderName, folderDescription, folderContact, (didCre
 
     var folderBody = didCreateFolder.body;
     var charNum = 4;
+    logger.info('folderBody: ' + folderBody);
     if (folderBody.includes('folderitems')) {
         var folderID = folderBody.substring(folderBody.indexOf("<id>") + charNum, folderBody.indexOf("</id>"));
         logger.info('folderID: ' + folderID);
