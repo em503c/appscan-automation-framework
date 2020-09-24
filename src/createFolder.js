@@ -53,26 +53,16 @@ if(!folderName){
  * ase.createFolder = function (parentID, folderName, description, contact, callback)
  */
 ase.createFolder(parentID, folderName, folderDescription, folderContact, (didCreateFolder) => {
-    logger.info('use strict');
-    'use strict';
-    const util = require('util');
-    console.log(util.inspect(didCreateFolder, {depth: null}));
-
     var folderBody = didCreateFolder.body;
     var charNum = 4;
-    logger.info('typeof folderBody: ' + typeof folderBody);
     if (typeof folderBody === 'string') {
         var folderID = folderBody.substring(folderBody.indexOf("<id>") + charNum, folderBody.indexOf("</id>"));
-        logger.info('folderID: ' + folderID);
         logger.info('Successfully created folder: ' + folderName + ' id#' + folderID);
     } else {
-        logger.info('folder already exists');
         ase.getFolders((folderList) => {
-            console.log(util.inspect(folderList, {depth: null}));
             folderList.body.forEach(existingFolder => {
-                logger.info('folderID: ' + folderID);
                 if (existingFolder.folderName === folderName) {
-                  logger.info('Application already exists with id#'+existingFolder.folderId);
+                    logger.info('Application already exists with id#' + existingFolder.folderId);
                 }
             });
         })
