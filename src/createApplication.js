@@ -16,12 +16,11 @@ const logger = require('../config/logger');
  * Global Variables
  */
 
-
 var appName = null;
 var appDescription = 'Application added via REST API';
 var appContact = '';
 var tagsArray = [];
-
+var range = {start: 0, end: 99999999};
 
 // Assign argument values to variables
 for (let arguments in process.argv) {
@@ -61,12 +60,15 @@ if(!appName){
  * ase.createApp = function (name, description, tagsArray, development_contact, callback) 
  */
 ase.createApp(appName, appDescription, tagsArray, appContact, (didCreateApp) => {
-
-    if (didCreateApp.id) {
-        logger.info('Successfully created application: '+appName+' id#'+didCreateApp.id);
-
+    if (didCreateApp.body.id) {
+        logger.info('Successfully created application: '+appName+' id#'+didCreateApp.body.id);
     } else {
-      logger.info('Could not create application: '+appName);
+        ase.getApps(range, (appList) => {
+            appList.body.forEach(existingApp => {
+                if (existingApp.name === appName) {
+                  logger.info('Application already exists with id#'+existingApp.id);
+                }
+            });
+        })
     }
-
 })

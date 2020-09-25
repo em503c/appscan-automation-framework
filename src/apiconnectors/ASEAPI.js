@@ -345,7 +345,7 @@ var post = function (url, body, callback, header) {
                     logger.error('Error your AppScan Enterprise license is expiring soon warning.  You must extend your license to resolve this know issue with certain API endpoints.  (Legacy API)');
                 }
                 if (response.statusCode == 401) {
-                    logger.error('Error trying to create folder on AppScan Enterprise, the folder could already exist or ' + response.body.errorMessage);
+                    // logger.error('Error trying to create folder on AppScan Enterprise, the folder could already exist or ' + response.body.errorMessage);
                 }
                 callback(null, response);
             }
